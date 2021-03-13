@@ -31,16 +31,22 @@ char *mystrrchr(const char *s, int c) {
 
 size_t mystrspn(const char *s, const char *accept) {
     size_t result = 0;
+
     
     for(const char *i = s; *i != 0; i++) {
+        int found = 0;
         //printf("value of i: %c\n", *i);
         for(const char *j = accept; *j != 0; j++) {
             //printf("value of i: %c\n", *i);
             //printf("value of j: %c\n", *j);
             if(*i == *j) {
                 result++;
+                found = 1;
                 break;
             }
+        }
+        if(!found) {
+            return result;
         }
     }
     return result;
