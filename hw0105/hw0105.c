@@ -49,7 +49,7 @@ int main() {
     char    *token = mystrtok( str3, " " );
     int32_t i = 0;
 
-    printf("token: %p\n", token);
+    //printf("token: %p\n", token);
     while( token != NULL ) {
         printf( "%d: %s\n", i, token );
         token = mystrtok( NULL, " " );
