@@ -88,21 +88,37 @@ char *mystrstr(const char *haystack , const char *needle) {
 
 char *mystrtok(char *str, const char *delim) {
     static char *lastResult = NULL;
-    static char *pSearchStr = NULL;
-    char *startSearch;
-    char token[2049] = {0};
+    //static char *pSearchStr = NULL;
+    char *searchPointer = NULL;
+    char *token = NULL;
     
     if(str == NULL) {
-        startSearch = lastResult;
+        if(lastResult == NULL) {
+            return NULL;
+        }
+        searchPointer = lastResult;
     } else {
-        pSearchStr = str;
-        startSearch = str;
+        searchPointer = str;
         lastResult = str;
     }
     
-    printf("strtok\n");
+   
+    searchPointer = mystrpbrk(lastResult, delim);
     
-    for(char *i = startSearch; *i != 0; i++) {
+    if(searchPointer != NULL) {
+        token = lastResult;
+        *searchPointer = 0;
+        //printf("token: \'%s\'\n", token);
+        lastResult = searchPointer+1;
+        return token;
+    }
+    
+    token = lastResult;
+    lastResult = NULL;
+    return token;
+    
+    
+    /*for(char *i = startSearch; *i != 0; i++) {
         for(char *j = delim; *j != 0; j++) {
             if(*i == *j) {
                 //printf("i-lastResult: %ld\n", i-lastResult);
@@ -113,7 +129,7 @@ char *mystrtok(char *str, const char *delim) {
                     continue;
                 } else {
                     printf("return %p\n", token);
-                    return token;
+                    return strTest;
                 }
             }
         }
@@ -126,8 +142,6 @@ char *mystrtok(char *str, const char *delim) {
         strncpy(token, lastResult, strlen(pSearchStr));
         lastResult += strlen(pSearchStr) + 1;
         pSearchStr = NULL;
-        return token;
-    }
-    
-    return NULL;
+        return strTest;
+    }*/
 }
