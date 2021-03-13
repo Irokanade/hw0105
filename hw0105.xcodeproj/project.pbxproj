@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E68FA60825F31FD70087FB57 /* hw0105.c in Sources */ = {isa = PBXBuildFile; fileRef = E68FA60725F31FD70087FB57 /* hw0105.c */; };
 		E68FA60C25F320290087FB57 /* mystring.c in Sources */ = {isa = PBXBuildFile; fileRef = E68FA60B25F320290087FB57 /* mystring.c */; };
+		E68FA61A25FD07740087FB57 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = E68FA61925FD07740087FB57 /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		E68FA60725F31FD70087FB57 /* hw0105.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hw0105.c; sourceTree = "<group>"; };
 		E68FA60A25F320290087FB57 /* mystring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mystring.h; sourceTree = "<group>"; };
 		E68FA60B25F320290087FB57 /* mystring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mystring.c; sourceTree = "<group>"; };
+		E68FA61925FD07740087FB57 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E68FA60725F31FD70087FB57 /* hw0105.c */,
 				E68FA60A25F320290087FB57 /* mystring.h */,
 				E68FA60B25F320290087FB57 /* mystring.c */,
+				E68FA61925FD07740087FB57 /* Makefile */,
 			);
 			path = hw0105;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E68FA61A25FD07740087FB57 /* Makefile in Sources */,
 				E68FA60C25F320290087FB57 /* mystring.c in Sources */,
 				E68FA60825F31FD70087FB57 /* hw0105.c in Sources */,
 			);

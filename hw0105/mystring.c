@@ -87,34 +87,46 @@ char *mystrstr(const char *haystack , const char *needle) {
 }
 
 char *mystrtok(char *str, const char *delim) {
-    static char *lastResult;
+    static char *lastResult = NULL;
+    static char *pSearchStr = NULL;
     char *startSearch;
     char token[2049] = {0};
     
     if(str == NULL) {
         startSearch = lastResult;
     } else {
+        pSearchStr = str;
         startSearch = str;
         lastResult = str;
     }
     
+    printf("strtok\n");
+    
     for(char *i = startSearch; *i != 0; i++) {
         for(char *j = delim; *j != 0; j++) {
-            if(*i == 0) {
-                printf("null character\n");
-            }
             if(*i == *j) {
                 //printf("i-lastResult: %ld\n", i-lastResult);
                 strncpy(token, lastResult, i-lastResult);
-                //printf("Token: \"%s\"\n", token);
+                printf("Token: \"%s\"\n", token);
                 lastResult = i + 1;
                 if(*token == 0) {
                     continue;
                 } else {
+                    printf("return %p\n", token);
                     return token;
                 }
             }
         }
+    }
+    
+    //printf("lastResult: %p\n", lastResult);
+    //printf("strend: %p\n", pSearchStr+strLength);
+    
+    if(pSearchStr != NULL) {
+        strncpy(token, lastResult, strlen(pSearchStr));
+        lastResult += strlen(pSearchStr) + 1;
+        pSearchStr = NULL;
+        return token;
     }
     
     return NULL;
